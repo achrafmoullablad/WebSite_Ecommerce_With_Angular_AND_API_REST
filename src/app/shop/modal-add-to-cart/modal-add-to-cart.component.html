@@ -1,0 +1,44 @@
+<div class="modal fade style3" *ngFor="let product of products" [id]="'add-to-cart-'+product.idProduct" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center bg-dark">
+                <h5 class="modal-title" id="add-to-cartCenterTitle"> <span class="ion-checkmark-round"></span> Product successfully added to your shopping cart</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-5 divide-right">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img width="360" [src]="prefUrlImage+product.image" alt="img">
+                            </div>
+                            <div class="col-md-6 mb-2 mb-md-0">
+                                <h4 class="product-name">{{ product.name}}</h4>
+                                <h5 class="price">Price: ${{ product.price}}</h5>
+                                <h6 class="quantity"><strong>Quantity:</strong>&nbsp;1</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="modal-cart-content">
+                            <p class="cart-products-count">There is 1 item in your cart.</p>
+                            <p><strong>Total products:</strong>&nbsp;${{ product.price}}</p>
+                            <p><strong>Total shipping:</strong>&nbsp;$0.00 </p>
+                            <p><strong>Taxes 20% :</strong>&nbsp;${{ (product.price*0.2).toFixed(2) }}</p>
+                            <p><strong>Total:</strong>&nbsp;${{ (product.price*1.2).toFixed(2) }}</p>
+                            <div class="cart-content-btn">
+                                <button type="button" class="btn theme-btn--dark1 btn--md mt-4 mr-2" data-dismiss="modal">Continue
+                          shopping</button>
+                                <button routerLink="/checkout" class="btn theme-btn--dark1 btn--md mt-4" data-dismiss="modal"><i
+                              class="ion-checkmark-round"></i>Proceed to
+                          checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
